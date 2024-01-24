@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.flatpages',
-    'newsapp',
+    'newsapp.apps.NewsappConfig',
     'django_filters',
     'allauth',
     'allauth.account',
@@ -148,6 +148,21 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 
 ACCOUNT_FORMS = {"signup": "accounts.forms.CustomSignupForm"}
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = "bahtiar.salahov"
+EMAIL_HOST_PASSWORD = "deztdloqyaewiabx"
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+
+DEFAULT_FROM_EMAIL = "bahtiar.salahov@yandex.ru"
+
+SERVER_EMAIL = 'bahtiar.salahov@yandex.ru'
+MANAGERS = (
+    ('Baha', 'bahtiyar_t9581@list.ru'),
+)
