@@ -7,6 +7,8 @@ from django.urls import reverse
 from django.template.defaultfilters import truncatewords
 
 
+
+
 class Author(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     user_rate = models.IntegerField(default=0)
@@ -65,6 +67,8 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('news_detail', args=[str(self.id)])
+
+
 
 
 class PostCategory(models.Model):

@@ -10,6 +10,7 @@ import datetime
 from .filters import PostFilter
 from .forms import PostForm
 
+
 class NewsList(ListView):
     model = Post
     ordering = '-date_time'
@@ -80,7 +81,9 @@ class NewsCreate(PermissionRequiredMixin, CreateView):
     def form_valid(self, form):
         post = form.save(commit= False)
         post.choice = 'N'
+
         return super().form_valid(form)
+
 
 
 class ArticleCreate(PermissionRequiredMixin, CreateView):
@@ -170,3 +173,5 @@ def subscriptions(request):
         'subscriptions.html',
         {'categories': categories_with_subscriptions},
     )
+
+
